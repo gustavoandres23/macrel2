@@ -3,54 +3,54 @@
 
 <ul>
 
-
-<h4 class="center teal-text">Ingresar nuevo proveedor</h4>
+<li class="divider"></li>
+<h4 class="center orange-text light">Ingresar nuevo proveedor</h4>
 <li class="divider"></li>
 
 <br>
 </ul>
 </div>
 
-<div class="row">
-<form>
+<div class="row center">
+  <div class="light red-text">
+<?php echo validation_errors(); ?>
+  </div>
+
+
+<?php echo form_open('VerifyAddProv');?>
   <div class="input-field col s6">
-      <input id="rut" placeholder="12345678-9" type="text" class="validate">
-      <label for="text">Rut cliente</label>
+      <input id="rut" name="rut" placeholder="76543210-9" type="text" class="validate">
+      <label for="rut">Rut proveedor</label>
   </div>
 
   <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate">
-      <label for="last_name">Nombre</label>
+      <input id="nombre" name="nombre" type="text" class="validate">
+      <label for="nombre">Nombre Proveedor</label>
   </div>
 
   <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate">
-      <label for="last_name">Apellido</label>
+      <input id="direccion" name="direccion" type="text" class="validate">
+      <label for="direcion">Dirección/Localicación</label>
   </div>
 
-  <div class="input-field col s6">
-      <input id="Dirección" type="text" class="validate">
-      <label for="text">Dirección/Localicación</label>
-  </div>
-
-    <div class="input-field col s6">
+    <!--<div class="input-field col s6">
         <input id="Dirección" type="text" class="validate">
         <label for="text">Giro comercial</label>
+    </div>-->
+
+    <div class="input-field col s6">
+        <input id="fono" name="fono" type="number" class="validate">
+        <label for="fono">Fono comercial</label>
     </div>
 
     <div class="input-field col s6">
-        <input id="Dirección" type="tel" class="validate">
-        <label for="tel">Fono comercial</label>
-    </div>
-
-    <div class="input-field col s6">
-        <input id="email" type="email" class="validate">
+        <input id="email" name="email" type="email" class="validate">
         <label for="email">correo electronico</label>
     </div>
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Ingresar nuevo proveedor
-      <i class="material-icons right">send</i>
+    <button class="btn-large waves-effect waves-light" type="submit" name="action">Ingresar nuevo proveedor
+      <i class="material-icons right">add</i>
     </button>
 
-</form>
+<?php echo form_close()?>
 </div>

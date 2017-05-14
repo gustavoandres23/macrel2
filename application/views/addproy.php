@@ -11,43 +11,49 @@
 </div>
 
 <div class="row">
-<form>
+
+  <?php echo form_open('addproy/addnewproy'); ?>
+<!--
+  <div class="input-field col s6">
+      <input id="nombreproyecto" type="text" class="validate">
+      <label for="nombreproyecto">Nombre proyecto</label>
+  </div>
+-->
+<div class="row">
 
   <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate">
-      <label for="last_name">Nombre proyecto</label>
+      <input id="nombrecliente" type="text" class="validate">
+      <label for="nombrecliente">Nombre Cliente</label>
   </div>
 
   <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate">
-      <label for="last_name">Nombre Cliente</label>
+      <input id="rutcliente" type="text" class="validate">
+      <label for="rutcliente">Rut cliente</label>
   </div>
 
-  <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate">
-      <label for="last_name">Rut cliente</label>
   </div>
 
+
   <div class="input-field col s6">
-      <input id="presupuesto" type="tel" class="validate">
-      <label for="tel">Presupuesto</label>
+      <input id="Ubicacion" type="text" class="validate">
+      <label for="Ubicacion">Ubicación</label>
   </div>
 
 
   <div class="col s6">
-    <label for="birthdate">Fecha inicio proyecto</label>
+    <label for="dateIni">Fecha inicio proyecto</label>
     <input type="date" id="dateIni" class="datepicker">
   </div>
 
-    <div class="col s6">
-      <label for="birthdate">Fecha termino proyecto</label>
-      <input type="date" id="dateFin" class="datepicker">
-    </div>
+  <div class="col s6">
+    <label for="dateFin">Fecha termino proyecto</label>
+    <input type="date" id="dateFin" class="datepicker">
+  </div>
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Ingresar nuevo proyecto
-      <i class="material-icons right">send</i>
-    </button>
+  <button class="btn-large waves-effect waves-light" type="submit" name="action">Ingresar nuevo proyecto
+    <i class="material-icons right">add</i>
+  </button>
 
-</form>
+  <?php echo form_close();?>
 
 </div>

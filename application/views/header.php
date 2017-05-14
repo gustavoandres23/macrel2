@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" context="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <title>Title</title>
+        <title>IPT</title>
         <meta name="description" content="">
 
 
@@ -16,11 +16,11 @@
 
 
         <!--Imported JS Links-->
-        <script src="<?php echo base_url();?>assets/js/jquery-2.1.10.js') ?>"></script>
-        <script src="<?php echo base_url();?>assets/js/jquery-ui-1.10.4.custom.min.js') ?>"></script>
-        <script src="<?php echo base_url();?>assets/js/jquery.validate.js') ?>"></script>
-        <script src="<?php echo base_url();?>assets/js/additional-methods.js') ?>"></script>
-        <script src="<?php echo base_url();?>assets/js/form-validation.js') ?>"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery-2.1.10.js"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery.validate.js"></script>
+        <script src="<?php echo base_url();?>assets/js/additional-methods.js"></script>
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     </head>
     <body>
