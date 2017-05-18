@@ -3,7 +3,7 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('ID_user, Nombre_user, Pass, Nivel_Acceso');
+   $this -> db -> select('ID_User, Nombre_user, Pass, Nivel_Acceso');
    $this -> db -> from('usuario');
    $this -> db -> where('Nombre_user', $username);
    $this -> db -> where('Pass', $password);

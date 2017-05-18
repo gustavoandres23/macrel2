@@ -24,8 +24,32 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
+
+     //area privilegiada.
      //Go to private area
-     redirect('addproy', 'refresh');
+     //redirect('addproy', 'refresh');
+
+     //switch 
+      switch ($this->session->userdata('perfil')) {
+			case '':
+        $data['title']="sin perfil";
+				$this->load->view('login',$data);
+				break;
+			case 'admin':
+				redirect(base_url().'addproy');
+				break;
+			case '2':
+				redirect(base_url().'addprov');
+				break;
+			case '3':
+				redirect(base_url().'suscriptor');
+				break;
+			default:
+				$data['title'] = 'Login con roles de usuario en codeigniter';
+				$this->load->view('login',$data);
+				break;
+		}
+
    }
  }
 
@@ -43,9 +67,10 @@ class VerifyLogin extends CI_Controller {
      foreach($result as $row)
      {
        $sess_array = array(
-         'id' => $row->Id_user,
-         'username' => $row->Nombre_user,
-         'userlevel'=> $row->Nivel_Acceso
+         'is_logued_in' 	=> 		TRUE,
+         'id'             => $row->ID_User,
+         'username'       => $row->Nombre_user,
+         'perfil'         => $row->Nivel_Acceso
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }
@@ -53,7 +78,7 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
-     $this->form_validation->set_message('check_database', 'Invalid username or password');
+     $this->form_validation->set_message('check_database', 'Usuario o contraseña son invalidos');
      return false;
    }
  }
