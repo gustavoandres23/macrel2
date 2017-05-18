@@ -144,7 +144,7 @@
 
 
 
-                <li><a href="mobile.html"><i class="material-icons white-text">more_vert</i></a></li>
+                <li><a href="<?php echo base_url()?>verifyLogin/logout_ci"><i class="material-icons white-text">input</i></a></li>
               </ul>
       </div>
     </form>
