@@ -8,9 +8,12 @@ Class User extends CI_Model
 
         $result = $this->db->get('usuario');
 
-        if ($result->num_rows() == 1) {
+        if ($result->num_rows() == 1)
+        {
             return $result->row();
-        }else{
+        }
+        else
+        {
             return false;
         }
  }
