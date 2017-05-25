@@ -24,18 +24,18 @@ class VerifyLogin extends CI_Controller {
      $username = $this->input->post('username');
      $password = $this->input->post('password');
 
-     //query the database
+     //consulta base de datos
      $result = $this->user->login($username, $password);
-
+     //arreglo asociativo de los datos para la sesion
      if($result == TRUE)
      {
           $user_data = array(
             'id_usuario'          => $result->ID_User,
-            'username'            => $result->Nombre_user,
+            'username'            => $result->Nombre_User,
             'perfil'              => $result->Nivel_Acceso,
             'logged_in'           => true
                     );
-          // Set session user data
+
           $this->session->set_userdata($user_data);
 
           switch ($this->session->userdata('perfil'))
@@ -71,11 +71,11 @@ class VerifyLogin extends CI_Controller {
     }
     return TRUE;
  }
-
  function logout_ci()
 	{
 		$this->session->sess_destroy();
     redirect(base_url().'login');
   }
 }
+
   ?>

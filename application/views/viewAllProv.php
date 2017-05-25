@@ -1,7 +1,7 @@
 <div class="col 12">
 
 <ul>
-<h4 class="center teal-text">Detalle de proveedores</h4>
+<h4 class="center orange-text light">Detalle de proveedores</h4>
 <li class="divider"></li>
 
 </ul>
@@ -9,26 +9,26 @@
 <table class="bordered centered">
       <thead>
         <tr>
+            <th>Rut</th>
             <th>Nombre</th>
-            <th>Localización</th>
-            <th>Fono</th>
-            <th>Email</th>
-            <th>Acciones</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Correo Electronico</th>
+            <th>Opcion</th>
         </tr>
       </thead>
 
+    <?php
+    foreach ($proveedores->result() as $proveedores) {
+    ?>
       <tbody>
         <tr>
-          <td>Covepa</td>
-          <td>Calle, Puerto montt</td>
-          <td>987654321</td>
-          <td>ventas@covepa.com</td>
-          <td><i class="material-icons green-text">mode_edit</i><i class="material-icons red-text">delete</i></td>
+          <td>  <? echo $proveedores->RUT;?>  </td>
+          <td>  <? echo $proveedores->Nombre;?> </td>
+          <td>  <? echo $proveedores->Direccion;?>  </td>
+          <td>  <? echo $proveedores->Fono;?> </td>
+          <td>  <? echo $proveedores->Email;?>  </td>
+          <td> <a href="#"><i class="material-icons green-text">mode_edit</i></a>    <a href="<?php echo base_url()?>seeprov/deleteproveedor(<?$proveedores->RUT;?>)"><i class="material-icons red-text">delete</i></a></td>
         </tr>
-        <tr>
-          <td>Socovepa</td>
-          <td>Calle, Puerto montt</td>
-          <td>987654321</td>
-          <td>ventas@socovepa.cl</td>
-          <td><i class="material-icons green-text">mode_edit</i><i class="material-icons red-text">delete</i></td>
-        </tr>
+      </tbody>
+    <?php } ?>

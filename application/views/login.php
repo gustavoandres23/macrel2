@@ -34,11 +34,10 @@
       <div class="red-text light">
         <?php echo validation_errors(); ?>
         <?php echo form_open('verifylogin'); ?>
-
-
       </div>
 
-  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+  <h5 class="header col s12 light">Industrial Project-Tools</h5>
+
   <div class="row center">
 
     <div class="input-field col s6">
@@ -51,7 +50,7 @@
         <label for="password">Password</label>
     </div>
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Iniciar sesión
+    <button class="btn waves-effect  waves-light" type="submit" name="action">Iniciar sesión
       <i class="material-icons right">send</i>
     </button>
   </div>

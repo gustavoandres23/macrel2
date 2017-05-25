@@ -25,27 +25,33 @@
     </head>
     <body>
       <!--componentes de dropdownlist 0 -->
-<div>
-      <ul id="dropdown0" class="dropdown-content">
-        <li><a href="#!">Crear nueva</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">Historicas</a></li>
-      </ul>
+    <div>
+          <ul id="dropdown0" class="dropdown-content">
+            <li><a href="#!">Crear nueva</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Historicas</a></li>
+          </ul>
 
-      <ul id="dropdown1" class="dropdown-content">
-        <li><a href="<?php echo site_url('addproy'); ?>">Nuevo</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">Ver Todos</a></li>
-      </ul>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="<?php echo base_url();?>addproy">Nuevo</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Ver Todos</a></li>
+          </ul>
 
-      <!--componentes de dropdownlist 2 -->
-      <ul id="dropdown2" class="dropdown-content">
-        <li><a href="#!">Nuevo</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">Ver Todos</a></li>
-      </ul>
+          <!--componentes de dropdownlist 2 -->
+          <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#!">Nuevo</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Ver Todos</a></li>
+          </ul>
+          <!--componentes de dropdownlist 3 -->
+          <ul id="dropdown3" class="dropdown-content">
+            <li><a href="<?php echo base_url()?>addprov">Nuevo</a></li>
+            <li class="divider"></li>
+            <li><a href="<?php echo base_url()?>seeprov">Ver Todos</a></li>
+          </ul>
 
-</div>
+    </div>
       <!--barra nav-->
 
       <nav class="teal" role="navigation">
@@ -104,12 +110,19 @@
                       </li>
                     </ul>
 
+                    <ul class="collapsible collapsible-accordion">
+                      <li>
+                        <a class="collapsible-header">Proveedores<i class="material-icons">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="<?php echo base_url()?>addprov">Crear nuevo</a></li>
+                            <li><a href="#!">Ver todos</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
 
                 </li>
-
-
-
-
           </ul>
 
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -131,23 +144,17 @@
         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
         <i class="material-icons">close</i>
       </div>
-
+    </form>
       <!--Submenu-->
 
       <div class="col s6">
         <ul class="hide-on-med-and-down">
                 <li><a href="#"><i class="material-icons white-text">assessment</i></a></li>
-
-
-
                 <li><a href="#"><i class="material-icons white-text">message</i></a></li>
-
-
-
                 <li><a href="<?php echo base_url()?>verifyLogin/logout_ci"><i class="material-icons white-text">input</i></a></li>
               </ul>
       </div>
-    </form>
+
   </div>
 </nav>
 

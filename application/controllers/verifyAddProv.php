@@ -7,7 +7,7 @@ class VerifyAddProv extends CI_Controller
   function __construct()
   {
     parent::__construct();
-    $this->load->model('insertProveedores_model','',TRUE);
+    $this->load->model('Proveedores_model','',TRUE);
   }
 
 
@@ -22,11 +22,9 @@ class VerifyAddProv extends CI_Controller
     if($this->form_validation->run() == FALSE)
     {
       //Field validation failed.  User redirected to login page
-
       $this->load->view('header');
       $this->load->view('addprov');
       $this->load->view('footer');
-
     }
     else
     {
@@ -38,17 +36,14 @@ class VerifyAddProv extends CI_Controller
       'Fono'         =>   $this->input->post('fono'),
       'Email'        =>   $this->input->post('email')
     );
-    $this->insertProveedores_model->insertarproveedor($data);
+    $this->Proveedores_model->insertarproveedor($data);
     $this->load->view('header');
-    $this->load->view('addprov');
+    $this->load->view('viewallprov');
     $this->load->view('footer');
-
-
-
 
     }
   }
-  }
+}
 
 
 /* public function index()
