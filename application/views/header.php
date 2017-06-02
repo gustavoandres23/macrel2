@@ -11,7 +11,7 @@
 
         <!--Imported CSS Links-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
         <link href="<?php echo base_url();?>assets/css/materialize.min.css" rel="stylesheet">
 
 
@@ -24,16 +24,18 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     </head>
     <body>
+
+
       <!--componentes de dropdownlist 0 -->
     <div>
           <ul id="dropdown0" class="dropdown-content">
-            <li><a href="#!">Crear nueva</a></li>
+            <li><a href="">Crear nueva</a></li>
             <li class="divider"></li>
             <li><a href="#!">Historicas</a></li>
           </ul>
 
           <ul id="dropdown1" class="dropdown-content">
-            <li><a href="<?php echo base_url();?>addproy">Nuevo</a></li>
+            <li><a href="<?php echo base_url()?>ctl_proy">Nuevo</a></li>
             <li class="divider"></li>
             <li><a href="#!">Ver Todos</a></li>
           </ul>
@@ -46,15 +48,15 @@
           </ul>
           <!--componentes de dropdownlist 3 -->
           <ul id="dropdown3" class="dropdown-content">
-            <li><a href="<?php echo base_url()?>addprov">Nuevo</a></li>
+            <li><a href="<?php echo base_url()?>ctl_prov/addprov">Nuevo</a></li>
             <li class="divider"></li>
-            <li><a href="<?php echo base_url()?>seeprov">Ver Todos</a></li>
+            <li><a href="<?php echo base_url()?>ctl_prov">Ver Todos</a></li>
           </ul>
 
     </div>
       <!--barra nav-->
 
-      <nav class="teal" role="navigation">
+      <nav class="blue-grey darken-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo white-text">Macrel</a>
           <!-- Dropdown Trigger -->
           <ul class="right hide-on-med-and-down">
@@ -115,8 +117,8 @@
                         <a class="collapsible-header">Proveedores<i class="material-icons">arrow_drop_down</i></a>
                         <div class="collapsible-body">
                           <ul>
-                            <li><a href="<?php echo base_url()?>addprov">Crear nuevo</a></li>
-                            <li><a href="#!">Ver todos</a></li>
+                            <li><a href="<?php echo base_url()?>ctl_prov/addprov">Crear nuevo</a></li>
+                            <li><a href="<?php echo base_url()?>ctl_prov">Ver todos</a></li>
                           </ul>
                         </div>
                       </li>
@@ -137,7 +139,7 @@
 <!--Barra de busqueda-->
 <div class="row">
 <nav>
-  <div class="nav-wrapper teal lighten-1">
+  <div class="nav-wrapper teal lighten">
     <form>
       <div class="input-field col s6">
         <input id="search" type="search" value="Buscar" required>
@@ -157,7 +159,5 @@
 
   </div>
 </nav>
-
-
-
 </div>
+<div class="container">

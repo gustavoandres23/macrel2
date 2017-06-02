@@ -11,7 +11,7 @@ class VerifyLogin extends CI_Controller {
  function index()
  {
 
-   $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+   $this->form_validation->set_rules('username', 'Username', 'trim|required|');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 
    if($this->form_validation->run() == FALSE)
@@ -31,6 +31,7 @@ class VerifyLogin extends CI_Controller {
      {
           $user_data = array(
             'id_usuario'          => $result->ID_User,
+            'nombre'              => $result->Nombre,
             'username'            => $result->Nombre_User,
             'perfil'              => $result->Nivel_Acceso,
             'logged_in'           => true
@@ -44,14 +45,17 @@ class VerifyLogin extends CI_Controller {
     				$data['title'] = 'Sin Perfil';
     				$this->load->view('login',$data);
     				break;
-    			case 'admin':
-    				redirect(base_url().'addprov');
+            //Administrador
+    			case '1':
+    				redirect(base_url().'home');
     				break;
-    			case 'supervisor':
+            //Compra y despacho
+    			case '2':
     				redirect(base_url().'addproy');
     				break;
-    			case 'suscriptor':
-    				redirect(base_url().'suscriptor');
+            //supervisor (obras)
+    			case '3':
+    				redirect(base_url().'supervisor');
     				break;
     			default:
     				$data['title'] = 'Login con roles de usuario en codeigniter';

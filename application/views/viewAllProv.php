@@ -13,7 +13,7 @@
             <th>Nombre</th>
             <th>Direccion</th>
             <th>Telefono</th>
-            <th>Correo Electronico</th>
+            <th>E-Mail</th>
             <th>Opcion</th>
         </tr>
       </thead>

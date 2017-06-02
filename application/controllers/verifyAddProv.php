@@ -23,12 +23,11 @@ class VerifyAddProv extends CI_Controller
     {
       //Field validation failed.  User redirected to login page
       $this->load->view('header');
-      $this->load->view('addprov');
+      $this->load->view('ctl_prov');
       $this->load->view('footer');
     }
     else
     {
-
       $data = array(
       'Rut'          =>   $this->input->post('rut'),
       'Nombre'       =>   $this->input->post('nombre'),

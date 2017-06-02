@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" context="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title><?php echo $title; ?></title>
         <meta name="description" content="">
@@ -19,16 +19,16 @@
         <script src="<?php echo base_url();?>assets/js/jquery.validate.js"></script>
         <script src="<?php echo base_url()?>assets/js/additional-methods.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
     </head>
     <body>
 
 
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
-    <br><br>
+    <br><br>    <br><br>    <br><br>
 
-    <h1 class="header center orange-text">Inicio sesión</h1>
+
     <div class="row center">
 
       <div class="red-text light">
@@ -36,7 +36,11 @@
         <?php echo form_open('verifylogin'); ?>
       </div>
 
-  <h5 class="header col s12 light">Industrial Project-Tools</h5>
+
+
+  <h5 class="header col s12 light teal-text">Industrial Project-Tools</h5>
+
+
 
   <div class="row center">
 
@@ -49,6 +53,7 @@
         <input id="password" name="password" type="password" class="validate">
         <label for="password">Password</label>
     </div>
+
 
     <button class="btn waves-effect  waves-light" type="submit" name="action">Iniciar sesión
       <i class="material-icons right">send</i>

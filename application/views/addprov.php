@@ -17,7 +17,7 @@
   </div>
 
 
-<?php echo form_open('VerifyAddProv');?>
+<?php echo form_open('ctl_prov/addprov');?>
   <div class="input-field col s6">
       <input id="rut" name="rut" placeholder="76543210-9" type="text" class="validate">
       <label for="rut">Rut proveedor</label>
@@ -48,7 +48,7 @@
         <label for="email">correo electronico</label>
     </div>
 
-    <button class="btn-large waves-effect waves-light" type="submit" name="action">Ingresar nuevo proveedor
+    <button class="btn-large blue-grey waves-effect waves-light" type="submit" name="action">Ingresar nuevo proveedor
       <i class="material-icons right">add</i>
     </button>
 

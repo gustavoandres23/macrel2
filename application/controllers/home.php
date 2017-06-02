@@ -21,9 +21,20 @@ class Home extends CI_Controller {
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
+
+      if($this->session->userdata('logged_in') != TRUE || $this->session->userdata('perfil') != '1')
+      {
+      redirect(base_url().'login');
+      }
+      else {
+        $data ['nombre'] = $this->session->userdata('nombre');
         $this->load->view('header');
-        $this->load->view('addproy');
+        $this->load->view('dashboard', $data);
         $this->load->view('footer');
+      }
+
+
+
     }
 
 

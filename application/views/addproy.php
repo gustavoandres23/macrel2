@@ -4,7 +4,7 @@
 <ul>
 
 
-<h4 class="center teal-text">Ingresar nuevo proyecto</h4>
+<h4 class="center light orange-text">Ingresar nuevo proyecto</h4>
 <li class="divider"></li>
 <br>
 </ul>
@@ -12,13 +12,13 @@
 
 <div class="row">
 
-  <?php echo form_open('addproy/addnewproy'); ?>
-<!--
-  <div class="input-field col s6">
-      <input id="nombreproyecto" type="text" class="validate">
-      <label for="nombreproyecto">Nombre proyecto</label>
-  </div>
--->
+  <div class="row center">
+    <div class="light red-text">
+  <?php echo validation_errors(); ?>
+    </div>
+
+  <?php echo form_open('ctl_proy/addproy'); ?>
+
 <div class="row">
 
   <div class="input-field col s6">
@@ -46,7 +46,7 @@
   </div>
 
   <div class="col s6">
-    <label for="dateFin">Fecha termino proyecto</label>
+    <label for="date">Fecha termino proyecto</label>
     <input type="date" id="dateFin" class="datepicker">
   </div>
 

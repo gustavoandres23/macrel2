@@ -17,9 +17,14 @@
       );
       }
       function obtenerproveedores(){
-        $query = $this->db->get('proveedores');
-        if($query->num_rows() > 0) return $query;
-        else return false;
+        $result = $this->db->get('proveedores');
+        if($result->num_rows() > 0)
+        {
+        return $result;
+        }
+        else{
+        return false;
+        }
       }
       function borrarproveedor($proveedores){
       $this->db->where('RUT', $proveedores);
