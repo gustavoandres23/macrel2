@@ -1,5 +1,4 @@
 <div class="row">
- <a href="<?php echo base_url()?>home" class="waves-effect waves-teal btn-flat">Mi Dashboard</a>
  <a href="<?php echo base_url()?>ctl_recursosh/addRecursosH" class="right btn-floating btn-large waves-effect waves-light orange"><i class="material-icons">add</i></a>
 
 </div>
@@ -20,7 +19,7 @@
      <li><a href="<?php echo base_url()?>home" class="btn-floating red"><i class="material-icons">home</i></a></li>
    </ul>
  </div>
-<form class="#" action="<?php echo base_url()?>ctl_recursosh/" method="post">
+<form class="#" action="<?php echo base_url()?>ctl_recursosh" method="post">
 
 
 <table id="" class="display table bordered centered">
@@ -43,18 +42,16 @@
         <tr>
           <td><div class="switch">
             <label>
-              Off
               <input type="checkbox" name="check_list[]" value="<? echo $recursosh->RUT;?>">
               <span class="lever"></span>
-              On
             </label>
           </div></td>
           <td>  <? echo $recursosh->RUT;?>  </td>
           <td>  <? echo $recursosh->Nombre;?> </td>
           <td>  <? echo $recursosh->Apellidos;?>  </td>
-          <td>  <? echo $recursosh->Valor_Hora;?>  </td>
+          <td>$ <? echo $recursosh->Valor_Hora;?>  </td>
           <td>  <? echo $recursosh->Detalle;?> </td>
-          <td> <a href="#"><i class="material-icons green-text">mode_edit</i></a>    <a href="#"><i class="material-icons red-text">delete</i></a></td>
+          <td> <a href="<?php echo base_url()?>ctl_recursosh/getTrabajador/<?php echo $recursosh->RUT;?>"><i class="material-icons green-text">mode_edit</i></a>    <a href="#"><i class="material-icons red-text">delete</i></a></td>
         </tr>
     <?php } ?>
 </tbody>
@@ -65,22 +62,56 @@
 
     <br>
     <div class="row center">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Agregar lista de trabajadores
+      <button class="btn waves-effect waves-light" type="submit" name="action">Agregar trabajadores seleccionados
   <i class="material-icons right">add</i>
 </button>
     </div>
 </form>
 <div class="container">
 
-<ul class="collection" id="checked">
+<form class="" action="" method="post">
+
+
+
+
+
+    <table class="highlight centered">
+      <thead>
+        <tr>
+          <th>Trabajor</th>
+          <th>Detalle</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr>
+
 <?php
 if(!empty($_POST['check_list'])) {
-    foreach($_POST['check_list'] as $check) {?>
-        <li class="collection-item active" value="<?echo $check;?>"><?echo $check;?> </li> <?
+    foreach($_POST['check_list'] as $checked) {
+      ?>
+<tbody>
+          <td><?echo $checked;?></td>
+          <td><a class="btn modal-trigger" href="#<?echo $checked;?>"><i class="material-icons">recent_actors</i></a></td>
+          <!-- Modal Structure -->
+          <div id="<?echo $checked;?>" class="modal">
+            <div class="modal-content">
+              <h4><?echo $checked;?></h4>
+            </div>
+          </div>
+         <?
     }
 }
 ?>
+  </tr>
+</tbody>
+</table>
+<div class="row center">
+  <button class="btn waves-effect  waves-light" type="submit" name="action">generar equipo
+<i class="material-icons medium right">add</i>
+</button>
+</div>
+</form>
 
 
-</ul>
 </div>

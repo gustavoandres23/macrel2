@@ -1,3 +1,8 @@
+<div class="row">
+ <a href="<?php echo base_url()?>home" class="waves-effect waves-teal btn-flat">Mi Dashboard</a>
+
+</div>
+
 <div class="col 12">
 
 <ul>
@@ -32,3 +37,4 @@
         </tr>
       </tbody>
     <?php } ?>
+</table>

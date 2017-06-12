@@ -26,10 +26,6 @@
         return false;
         }
       }
-      function borrarproveedor($proveedores){
-      $this->db->where('RUT', $proveedores);
-      $this->db->delete('proveedores');
-      }
 
 
 }

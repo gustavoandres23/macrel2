@@ -7,7 +7,9 @@ class Ctl_proy extends CI_Controller {
   function __construct()
   {
     parent::__construct();
-    $this->load->model('Proveedores_model','',TRUE);
+    $this->load->model('Proyectos_model','',TRUE);
+    $this->load->model('Clientes_model','',TRUE);
+    $this->load->model('RecursosH_model', '',TRUE);
 
   }
 
@@ -35,42 +37,114 @@ class Ctl_proy extends CI_Controller {
       redirect(base_url().'login');
       }
       else {
-      $this->load->view('header');
-      $this->load->view('addproy');
-      $this->load->view('footer');
+        $data['proyectos'] = $this->Proyectos_model->obtenerproyectos();
+        $data['clientes'] = $this->Clientes_model->obtenerClientes();
+        $data ['nombre'] = $this->session->userdata('nombre');
+
+        $this->load->view('header');
+        $this->load->view('dashboard', $data);
+        $this->load->view('footer');
+      }
+
+    }
+    function supervisorVerProyectos() {
+
+      if($this->session->userdata('logged_in') != TRUE)
+      {
+      redirect(base_url().'login');
+      }
+      else {
+        $data['proyectos'] = $this->Proyectos_model->obtenerproyectos();
+        $data['clientes'] = $this->Clientes_model->obtenerClientes();
+        $data ['nombre'] = $this->session->userdata('nombre');
+
+        $this->load->view('supervisor/header');
+        $this->load->view('supervisor/dashboard', $data);
+        $this->load->view('supervisor/footer');
       }
 
     }
 
     function addproy(){
-      $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|xss_clean');
-      $this->form_validation->set_rules('rut', 'Rut', 'trim|required|xss_clean');
+
+      $this->form_validation->set_rules('nombre_proyecto', 'Nombre Proyecto', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('rut_cliente', 'Rut cliente', 'trim|required|xss_clean');
       $this->form_validation->set_rules('ubicacion', 'Ubicacion', 'trim|required|xss_clean');
-      $this->form_validation->set_rules('fono', 'Fono', 'trim|required|xss_clean');
-      $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
 
       if($this->form_validation->run() == FALSE)
       {
         //Field validation failed.  User redirected to login page
+        $data['clientes'] = $this->Clientes_model->obtenerClientes();
         $this->load->view('header');
-        $this->load->view('addproy');
+        $this->load->view('addproy', $data);
         $this->load->view('footer');
       }
       else
       {
         $data = array(
-        'Rut'          =>   $this->input->post('rut'),
-        'Nombre'       =>   $this->input->post('nombre'),
-        'Direccion'    =>   $this->input->post('direccion'),
-        'Fono'         =>   $this->input->post('fono'),
-        'Email'        =>   $this->input->post('email')
+        'proyecto'       =>   $this->input->post('nombre_proyecto'),
+        'cliente'        =>   $this->input->post('rut_cliente'),
+        'ubicacion'      =>   $this->input->post('ubicacion'),
+        'estado'         =>   '1',
+        'lista_manoObra' =>   $this->input->post('equipo'),
+        'lista_material' =>   $this->input->post('lista_material'),
+        'utilidad'       =>   $this->input->post('utilidad')
       );
-      $this->Proveedores_model->insertarproveedor($data);
+      $this->Proyectos_model->insertarproyecto($data);
       $this->load->view('header');
-      $this->load->view('viewallprov');
+      $this->load->view('dashboard');
       $this->load->view('footer');
 
       }
+    }
+    function getProyecto($ID_Proyecto){
+      $obtenerFila = $this->Proyectos_model->obtenerProyecto($ID_Proyecto);
+      if ($obtenerFila != FALSE) {
+        foreach ($obtenerFila->result() as $row) {
+
+          $nombre        =      $row->Nombre_Proyecto;
+          $cliente       =      $row->ID_Cliente;
+          $ubicacion     =      $row->Ubicacion;
+          $estado        =      $row->Estado;
+          $lista_mano    =      $row->Lista_Mano;
+          $lista_mat     =      $row->Lista_Mat;
+          $utilidad      =      $row->Utilidad;
+        }
+        $data = array(
+          'id'                   =>    $ID_Proyecto,
+          'nombre'               =>    $nombre,
+          'cliente'              =>    $cliente,
+          'ubicacion'            =>    $ubicacion,
+          'estado'               =>    $estado,
+          'lista_mano'           =>    $lista_mano,
+          'lista_material'       =>    $lista_mat,
+          'utilidad'             =>    $utilidad);
+      }
+      else
+      {
+        return FALSE;
+      }
+      $this->load->view('header');
+      $data['clientes'] = $this->Clientes_model->obtenerClientes();
+      $this->load->view('ediproy', $data);
+      $this->load->view('footer');
+
+    }
+    function updProyecto($ID_Proyecto){
+      $data = array(
+        'Nombre_Proyecto'          =>   $this->input->post('nombre'),
+        'ID_Cliente'         =>   $this->input->post('cliente'),
+        'Ubicacion'       =>   $this->input->post('ubicacion'),
+        'Estado'          =>   $this->input->post('estado'),
+        'Utilidad'        =>   $this->input->post('utilidad')
+      );
+      $this->Proyectos_model->editarProyecto($ID_Proyecto, $data);
+      $this->load->view('header');
+      $data ['nombre'] = $this->session->userdata('nombre');
+      $data['proyectos'] = $this->Proyectos_model->obtenerproyectos();
+      $this->load->view('dashboard', $data);
+      $this->load->view('footer');
+
     }
     }
 

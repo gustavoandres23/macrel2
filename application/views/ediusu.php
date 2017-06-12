@@ -24,7 +24,6 @@
 
 
 
-</form>
 <?php echo form_open('ctl_usuarios/updUsuario/'.$id);?>
 
   <div class="input-field col s12">
@@ -63,9 +62,9 @@
       <p class="light">Nivel de usuario:</p>
       <select class="browser-default"  name="nivelusuario">
         <option value="<?php echo $perfil?>"><?php echo $perfil?></option>
-        <option value="1">Administrador</option>
-        <option value="2">Compras y despacho</option>
-        <option value="3">Supervisor</option>
+        <option value="1">Administrador = 1</option>
+        <option value="2">Compras y despacho = 2</option>
+        <option value="3">Supervisor = 3</option>
       </select>
     </div>
 
@@ -75,7 +74,7 @@
     <button class="btn-large waves-effect waves-light" type="submit"  name="action">Editar usuario
       <i class="material-icons right">edit</i>
     </button>
-    <script src="<?php echo base_url()?>assets/js/validarut.js"></script>
+    
 
     <?php echo form_close()?>
 

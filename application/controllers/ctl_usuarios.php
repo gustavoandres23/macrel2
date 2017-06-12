@@ -95,7 +95,7 @@ class Ctl_usuarios extends CI_Controller {
       return FALSE;
     }
     $this->load->view('header');
-    $this->load->view('editusu', $data);
+    $this->load->view('ediusu', $data);
     $this->load->view('footer');
 
   }

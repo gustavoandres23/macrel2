@@ -15,7 +15,7 @@ class Ctl_prov extends CI_Controller {
 
      */
     public function index() {
-      if($this->session->userdata('logged_in') != TRUE || $this->session->userdata('perfil') != '1')
+      if($this->session->userdata('logged_in') != TRUE)
       {
       redirect(base_url().'login');
       }
@@ -52,12 +52,27 @@ class Ctl_prov extends CI_Controller {
         'Email'        =>   $this->input->post('email')
       );
       $this->Proveedores_model->insertarproveedor($data);
+      $data['proveedores'] = $this->Proveedores_model->obtenerproveedores();
       $this->load->view('header');
-      $this->load->view('viewallprov');
+      $this->load->view('viewallprov', $data);
       $this->load->view('footer');
 
       }
     }
+    function supVerProv(){
+      if($this->session->userdata('logged_in') != TRUE || $this->session->userdata('perfil') != '3')
+      {
+      redirect(base_url().'login');
+      }
+      else {
+        $this->load->view('supervisor/header');
+        $data['proveedores'] = $this->Proveedores_model->obtenerproveedores();
+        $this->load->view('viewallprov', $data);
+        $this->load->view('supervisor/footer');
+      }
+    }
+
+
     }
 
 ?>

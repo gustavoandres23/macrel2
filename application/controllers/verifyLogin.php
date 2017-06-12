@@ -51,11 +51,11 @@ class VerifyLogin extends CI_Controller {
     				break;
             //Compra y despacho
     			case '2':
-    				redirect(base_url().'addproy');
+    				redirect(base_url().'ctl_cyd');
     				break;
             //supervisor (obras)
     			case '3':
-    				redirect(base_url().'supervisor');
+    				redirect(base_url().'ctl_supervisor');
     				break;
     			default:
     				$data['title'] = 'Login con roles de usuario en codeigniter';

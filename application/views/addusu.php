@@ -2,7 +2,6 @@
 
 <div class="col 12">
   <div class="row">
-   <a href="<?php echo base_url()?>home" class="waves-effect waves-orange btn-flat">Mi Dashboard</a>
    <a href="<?php echo base_url()?>ctl_usuarios/" class="right btn-floating btn-large waves-effect waves-light orange"><i class="material-icons">supervisor_account</i></a>
 
   </div>

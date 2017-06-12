@@ -3,14 +3,13 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Ctl_supervisor extends CI_Controller {
   function __construct()
   {
     parent::__construct();
     $this->load->model('Proyectos_model','',TRUE);
 
   }
-
     /**
      * Index Page for this controller.
      *
@@ -28,16 +27,16 @@ class Home extends CI_Controller {
      */
     public function index() {
 
-      if($this->session->userdata('logged_in') != TRUE || $this->session->userdata('perfil') != '1')
+      if($this->session->userdata('logged_in') != TRUE || $this->session->userdata('perfil') != '3')
       {
       redirect(base_url().'login');
       }
       else {
-        $data['proyectos'] = $this->Proyectos_model->obtenerproyectos();
         $data ['nombre'] = $this->session->userdata('nombre');
-        $this->load->view('header');
-        $this->load->view('dashboard', $data);
-        $this->load->view('footer');
+        $data['proyectos'] = $this->Proyectos_model->obtenerproyectos();
+        $this->load->view('supervisor/header');
+        $this->load->view('supervisor/dashboard', $data);
+        $this->load->view('supervisor/footer');
       }
 
 

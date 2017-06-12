@@ -19,35 +19,36 @@
 
   <?php echo form_open('ctl_proy/addproy'); ?>
 
-<div class="row">
 
-  <div class="input-field col s6">
-      <input id="nombrecliente" type="text" class="validate">
-      <label for="nombrecliente">Nombre Cliente</label>
+  <div class="input-field col s12">
+      <input id="nombre_proyecto" name="nombre_proyecto" type="text" class="validate">
+      <label for="nombre_proyecto">Nombre Proyecto</label>
   </div>
 
   <div class="input-field col s6">
-      <input id="rutcliente" type="text" class="validate">
-      <label for="rutcliente">Rut cliente</label>
+      <input id="ubicacion" name="ubicacion" type="text" class="validate">
+      <label for="ubicacion">Ubicación</label>
   </div>
-
-  </div>
-
 
   <div class="input-field col s6">
-      <input id="Ubicacion" type="text" class="validate">
-      <label for="Ubicacion">Ubicación</label>
+      <input id="utilidad" name="utilidad" type="text" class="validate">
+      <label for="utilidad">Utilidad</label>
   </div>
 
-
-  <div class="col s6">
-    <label for="dateIni">Fecha inicio proyecto</label>
-    <input type="date" id="dateIni" class="datepicker">
-  </div>
-
-  <div class="col s6">
-    <label for="date">Fecha termino proyecto</label>
-    <input type="date" id="dateFin" class="datepicker">
+  <div class="input-field col s6">
+      <select class="browser-default" name="rut_cliente">
+        <option value="" disabled selected>Seleccione Cliente</option>
+    <?php
+    foreach($clientes->result() as $cliente)
+    {
+        ?>
+        <option value="<?=$cliente->Rut;?>"><? echo $cliente->Nombre;?></option>
+        <?php
+    }
+    ?>
+    </select>
+    <p class="light">¿Cliente no aparece en lista?</p>
+    <a class="left light waves-effect waves-yellow btn-flat" href="<? echo base_url();?>ctl_clientes/addcliente">agregar nuevo cliente</a>
   </div>
 
   <button class="btn-large waves-effect waves-light" type="submit" name="action">Ingresar nuevo proyecto
@@ -55,5 +56,5 @@
   </button>
 
   <?php echo form_close();?>
-
+</div>
 </div>

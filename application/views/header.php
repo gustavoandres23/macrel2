@@ -29,7 +29,7 @@
       <!--componentes de dropdownlist 0 -->
     <div>
           <ul id="dropdown0" class="dropdown-content">
-            <li><a href="">Crear nueva</a></li>
+            <li><a href="<? echo base_url();?>ctl_cotizaciones/addcotizacion">Crear nueva</a></li>
             <li class="divider"></li>
             <li><a href="#!">Historicas</a></li>
           </ul>
@@ -40,12 +40,6 @@
             <li><a href="#!">Ver Todos</a></li>
           </ul>
 
-          <!--componentes de dropdownlist 2 -->
-          <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#!">Nuevo</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">Ver Todos</a></li>
-          </ul>
           <!--componentes de dropdownlist 3 -->
           <ul id="dropdown3" class="dropdown-content">
             <li><a href="<?php echo base_url()?>ctl_prov/addprov">Nuevo</a></li>
@@ -57,13 +51,14 @@
       <!--barra nav-->
 
       <nav class="blue-grey darken-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo white-text">Macrel</a>
-          <!-- Dropdown Trigger -->
+        <div class="nav-wrapper container"><a id="logo-container" href="<?php echo base_url()?>home" class="brand-logo white-text">Mi Dashboard</a>
+
           <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown0">Cotización<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Proyectos<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown2">Mano de obra<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown3">Proveedores<i class="material-icons right">arrow_drop_down</i></a></li>
+
+            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown0">Cotizaciones<i class="material-icons right">receipt</i></a></li>
+            <li><a class="white-text" href="<?php echo base_url()?>ctl_inventario">Inventario<i class="material-icons right">subject</i></a></li>
+            <li><a class="white-text" href="<?php echo base_url()?>ctl_recursosh">Mano de obra<i class="material-icons right">build</i></a></li>
+            <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown3">Proveedores<i class="material-icons right">recent_actors</i></a></li>
           </ul>
 
     <!--nav mobile-->
@@ -102,7 +97,7 @@
 
                     <ul class="collapsible collapsible-accordion">
                       <li>
-                        <a class="collapsible-header">Mano de obra<i class="material-icons">arrow_drop_down</i></a>
+                        <a class="collapsible-header">Mano de obra<i class="material-icons">build</i></a>
                         <div class="collapsible-body">
                           <ul>
                             <li><a href="#!">Crear nuevo</a></li>
@@ -114,7 +109,7 @@
 
                     <ul class="collapsible collapsible-accordion">
                       <li>
-                        <a class="collapsible-header">Proveedores<i class="material-icons">arrow_drop_down</i></a>
+                        <a class="collapsible-header">Proveedores<i class="material-icons">recent_actors</i></a>
                         <div class="collapsible-body">
                           <ul>
                             <li><a href="<?php echo base_url()?>ctl_prov/addprov">Crear nuevo</a></li>
